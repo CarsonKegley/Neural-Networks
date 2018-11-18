@@ -5,5 +5,6 @@ public class Runner{
     int[][] b = {{1,2,3,4},{2,3,4,5}};
 
     System.out.println(m.mulitply(a,b));
+    
   }//End Main
 }//End Class
