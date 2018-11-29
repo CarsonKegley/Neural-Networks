@@ -27,5 +27,8 @@ public class Node{
     output = value;
   }//End setWeight
 
-    
+  public Node(){
+    weight =  Math.random() * 5 + 1;
+  }//End Construcator
+
 }//End Class
