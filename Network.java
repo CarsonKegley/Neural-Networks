@@ -1,3 +1,3 @@
 public class Network{
-  
+
 } //Class

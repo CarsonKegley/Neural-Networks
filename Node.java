@@ -2,6 +2,7 @@ public class Node{
   private double weight;
   private double input;
   private double output;
+  private double[][] weightArray;
 
   public double getWeight(){
     return weight;
@@ -28,7 +29,18 @@ public class Node{
   }//End setWeight
 
   public Node(){
-    weight =  Math.random() * 5 + 1;
+    weight = random.nextDouble(4+1+4)-4;
   }//End Construcator
+
+  public void setWeightArray(Layer layer){
+      weightArray=new  double[Layer.getNumberOfNodes()][1];
+    for(int i = 0; i < layer.getNumberOfNodes(); i ++){
+      weightArray[i][0] = weight;
+    }//Setter For loop
+  }//End Weight Array
+
+  public double[][] getWeightArray(){
+    return weightArray;
+  }
 
 }//End Class

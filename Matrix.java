@@ -1,10 +1,10 @@
 public class Matrix{
 
-  public int[][] mulitply(int[][] a, int[][] b){
+  public double[][] mulitply(double[][] a, double[][] b){
     assert a.length == b[0].length : "Dimension missmatch";
     assert a[0].length ==b.length : "Dimension missmatch";
 
-    int[][] product = new int[a.length][b[0].length];
+    int[][] product = new double[a.length][b[0].length];
     for(int x =0; x < a.length ; x++){
       for(int y = 0; y < b[x].length; y++ ){
         for(int z = 0; z < a[y].length; z++ ){
