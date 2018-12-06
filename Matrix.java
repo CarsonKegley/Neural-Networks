@@ -9,7 +9,6 @@ public class Matrix{
       for(int y = 0; y < b[x].length; y++ ){
         for(int z = 0; z < a[y].length; z++ ){
           product[x][y] += a[x][z] * b[z][y];
-
         }//End For 3
       }//End For 2
     }//End For 1
@@ -28,4 +27,13 @@ public class Matrix{
       }//End For
     return product;
   }//End Addition
+
+  public double multiply1d(double[] a, double[] b){
+    assert a.length == b.length : "Dimension missmatch";
+    double tempValue = 0;
+    for(int i = 0 ; i< a.length;i++){
+        tempValue += a[i]*b[i];
+    }//End For
+    return tempValue;
+  }//End multiply1d
 }//End class

@@ -1,11 +1,12 @@
 public class Layer{
   private Node[] nodeArray;
-  private double[][] outputArray;
+  private double[] outputArray;
   private double[] imputArray;
   private int numberOfNodes;
   public Layer(int value){
     nodeArray = new Node[value];
-    numberOfNodes = values;
+    numberOfNodes = value;
+    Matrix matrix = new Matrix();
   }//End constructor
 
   public Node getNode(int value){
@@ -16,7 +17,7 @@ public class Layer{
     nodeArray[value] = new Node();
   }//End Add Node
 
-  public double[][] getOutputArray(){
+  public double[] getOutputArray(){
     return outputArray;
   }
 
@@ -29,8 +30,8 @@ public class Layer{
   }//End Getter
 
   public void feedForward(Layer layer){
-    for(int i =0; i < Layer.numberOfNodes(); i ++){
-    nodeArray[i].setOutput(Matrix.Multiply(Layer.getOutputArray(),nodeArray[i].getWeightArray()));
+    for(int i =0; i < layer.getNumberOfNodes(); i ++){
+    nodeArray[i].setOutput(matrix.multiply1d(layer.getOutputArray(),nodeArray[i].getWeightArray()));
     }//End For
   }//End Feed Forward
 
