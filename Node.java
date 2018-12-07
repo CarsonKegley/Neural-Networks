@@ -26,16 +26,16 @@ public class Node{
 
   public void setOutput(double value){
 
-    output =  1/(1+exp(-value));
+    output =  1/(1+ Math.exp(-value));
 
   }//End setWeight
 
   public Node(){
-    weight = random.nextDouble(1+1+1)-1;
+    weight = Math.random()*2-1;
   }//End Construcator
 
   public void setWeightArray(Layer layer){
-      weightArray=new  double[Layer.getNumberOfNodes()];
+      weightArray=new  double[layer.getNumberOfNodes()];
     for(int i = 0; i < layer.getNumberOfNodes(); i ++){
       weightArray[i] = weight;
     }//Setter For loop

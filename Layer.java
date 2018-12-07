@@ -1,12 +1,14 @@
 public class Layer{
   private Node[] nodeArray;
   private double[] outputArray;
-  private double[] imputArray;
+  private double[] inputArray;
   private int numberOfNodes;
+  private Matrix matrix = new Matrix();
   public Layer(int value){
     nodeArray = new Node[value];
     numberOfNodes = value;
     Matrix matrix = new Matrix();
+    inputArray =  new double[value];
   }//End constructor
 
   public Node getNode(int value){
@@ -21,6 +23,9 @@ public class Layer{
     return outputArray;
   }
 
+  public void setInputArray(double value, int position){
+    
+  }//End setInput
   public Node[] getNodeArray(){
     return nodeArray;
   }

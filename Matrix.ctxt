@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Matrix
 comment1.params=a\ b
-comment1.target=int[][]\ mulitply(int[][],\ int[][])
+comment1.target=double[][]\ mulitply(double[][],\ double[][])
 comment2.params=a\ b
 comment2.target=int[][]\ add(int[][],\ int[][])
-numComments=3
+comment3.params=a\ b
+comment3.target=double\ multiply1d(double[],\ double[])
+numComments=4

@@ -1,3 +1,7 @@
 public class Network{
+  private int numberOfLayers;
 
-} //Class
+  Layer one = new Layer(3);
+
+
+}//End Class
