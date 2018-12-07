@@ -24,7 +24,7 @@ public class Layer{
   }
 
   public void setInputArray(double value, int position){
-    
+    inputArray[position] = value;
   }//End setInput
   public Node[] getNodeArray(){
     return nodeArray;

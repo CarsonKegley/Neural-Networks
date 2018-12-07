@@ -2,7 +2,7 @@ public class Matrix{
 
   public double[][] mulitply(double[][] a, double[][] b){
     assert a.length == b[0].length : "Dimension missmatch";
-    assert a[0].length ==b.length : "Dimension missmatch";
+    assert a[0].length == b.length : "Dimension missmatch";
 
     double[][] product = new double[a.length][b[0].length];
     for(int x =0; x < a.length ; x++){
