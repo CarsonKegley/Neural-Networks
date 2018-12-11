@@ -23,7 +23,7 @@ public class Layer{
     return outputArray;
   }
 
-  public void setInputArray(double value, int position){
+  public void setLayerOneInputArray(double value, int position){
     inputArray[position] = value;
   }//End setInput
   public Node[] getNodeArray(){
@@ -34,10 +34,22 @@ public class Layer{
     return numberOfNodes;
   }//End Getter
 
-  public void feedForward(Layer layer){
-    for(int i =0; i < layer.getNumberOfNodes(); i ++){
-    nodeArray[i].setOutput(matrix.multiply1d(layer.getOutputArray(),nodeArray[i].getWeightArray()));
+
+  public void feedForward(Layer layer  ){
+    for(int i = 0; i < layer.getNumberOfNodes(); i ++){
+    layer.getNodeArray()[i].setOutput(matrix.multiply1d(layer.getInputArray(),nodeArray[i].getWeightArray()));
     }//End For
   }//End Feed Forward
+  public double[] getInputArray(){
+    return inputArray;
+   
+  }//End setOutput
+
+  public void setInputArray(Layer layer){
+    for(int i = 0; i < layer.getNumberOfNodes(); i++){
+      inputArray[i] = layer.getNodeArray()[i].getOutput();
+    }//End For
+  }//End Set INput
+
 
 }//End Class

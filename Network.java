@@ -16,11 +16,11 @@ public class Network{
   }//End setter
 
   public Layer[] getLayerArray(int value){
-    layerArray[value];
+    return layerArray[value];
   }//End Getter
 
   public void addLayer(int value){
-    layerArray[value] = new Layer();
+    layerArray[value] = new Layer(value);
   }//End addLayer
 
 
