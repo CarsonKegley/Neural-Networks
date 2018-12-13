@@ -1,3 +1,13 @@
 #BlueJ class context
 comment0.target=Network
-numComments=1
+comment1.params=value
+comment1.target=Network(int)
+comment2.params=
+comment2.target=int\ getNumberOfLayers()
+comment3.params=value
+comment3.target=void\ setNumberOfLayers(int)
+comment4.params=
+comment4.target=Layer[]\ getLayerArray()
+comment5.params=position\ value
+comment5.target=void\ addLayer(int,\ int)
+numComments=6

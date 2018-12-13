@@ -17,13 +17,14 @@ public class Layer{
 
   public void addNode(int value){
     nodeArray[value] = new Node();
+    numberOfNodes ++;
   }//End Add Node
 
   public double[] getOutputArray(){
     return outputArray;
   }
 
-  public void setLayerOneInputArray(double value, int position){
+  public void setLayerOneInputArray( int position,double value){
     inputArray[position] = value;
   }//End setInput
   public Node[] getNodeArray(){
@@ -42,7 +43,7 @@ public class Layer{
   }//End Feed Forward
   public double[] getInputArray(){
     return inputArray;
-   
+
   }//End setOutput
 
   public void setInputArray(Layer layer){

@@ -15,12 +15,12 @@ public class Network{
     numberOfLayers = value;
   }//End setter
 
-  public Layer[] getLayerArray(int value){
-    return layerArray[value];
+  public Layer[] getLayerArray(){
+    return layerArray;
   }//End Getter
 
-  public void addLayer(int value){
-    layerArray[value] = new Layer(value);
+  public void addLayer(int position, int value){
+    layerArray[position] = new Layer(value);
   }//End addLayer
 
 
