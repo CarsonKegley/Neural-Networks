@@ -26,13 +26,22 @@ public class Runner{
       base.getLayerArray()[0].setLayerOneInputArray(0,-1);
       base.getLayerArray()[0].setLayerOneInputArray(1,-1);
       base.getLayerArray()[0].setLayerOneInputArray(2,-1);
+
+      for(int i = 0; i <  base.getLayerArray()[0].getInputArray().length; i++){
+          System.out.println(base.getLayerArray()[0].getInputArray()[i]);
+      }//End For
+
+      //Setting the weightArray
       for(int i = 0; i <  base.getLayerArray()[0].getNodeArray().length; i++){
           base.getLayerArray()[0].getNodeArray()[i].setWeightArray(base.getLayerArray()[0]);
       }//End For
-      for(int i = 0; i< 3;i++){
-        System.out.println(base.getLayerArray()[0].getNodeArray()[i].getWeightArray()[i]);
+      //Printing the weight Array
+      for(int i = 0; i< base.getLayerArray()[0].getNodeArray()[0].getWeightArray().length ;i++){
+        System.out.println(base.getLayerArray()[0].getNodeArray()[0].getWeightArray()[i]);
       }//End For
-      //base.getLayerArray()[0].feedForward(base.getLayerArray()[0]);
+
+      base.getLayerArray()[0].feedForward(base.getLayerArray()[0]);
+      System.out.println();
       System.out.println(base.getLayerArray()[0].getNode(0).getWeight());
       System.out.println(base.getLayerArray()[0].getNode(1).getWeight());
       System.out.println(base.getLayerArray()[0].getNode(2).getWeight());
@@ -42,5 +51,6 @@ public class Runner{
       System.out.println();
       System.out.println(base.getLayerArray()[2].getNode(0).getWeight());
       System.out.println(base.getLayerArray()[2].getNode(1).getWeight());
+
   }//End Main
 }//End Class

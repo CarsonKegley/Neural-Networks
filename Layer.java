@@ -6,7 +6,7 @@ public class Layer{
   private Matrix matrix = new Matrix();
   public Layer(int value){
     nodeArray = new Node[value];
-    numberOfNodes = value;
+
     Matrix matrix = new Matrix();
     inputArray =  new double[value];
   }//End constructor
@@ -38,7 +38,7 @@ public class Layer{
 
   public void feedForward(Layer layer  ){
     for(int i = 0; i < layer.getNumberOfNodes(); i ++){
-    layer.getNodeArray()[i].setOutput(matrix.multiply1d(layer.getInputArray(),nodeArray[i].getWeightArray()));
+    layer.getNodeArray()[i].setOutput(matrix.multiply1d(layer.getInputArray(),layer.nodeArray[i].getWeightArray()));
     }//End For
   }//End Feed Forward
   public double[] getInputArray(){

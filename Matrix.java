@@ -28,7 +28,7 @@ public class Matrix{
     return product;
   }//End Addition
 
-  public  double multiply1d(double[] a, double[] b){
+  public static double multiply1d(double[] a, double[] b){
     assert a.length == b.length : "Dimension missmatch";
     double tempValue = 0;
     for(int i = 0 ; i< a.length;i++){
