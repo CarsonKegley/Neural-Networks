@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Connection
+comment1.params=input\ output
+comment1.target=Connection(Node,\ Node)
+comment2.params=
+comment2.target=double\ getWeight()
+comment3.params=
+comment3.target=Node\ getInputNode()
+comment4.params=
+comment4.target=Node\ getOutputNode()
+numComments=5

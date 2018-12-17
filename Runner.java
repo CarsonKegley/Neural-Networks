@@ -3,54 +3,71 @@ public class Runner{
 
       Network base = new Network(3);
       base.addLayer(0,3);
-      base.getLayerArray()[0].addNode(0);
-      base.getLayerArray()[0].addNode(1);
-      base.getLayerArray()[0].addNode(2);
-      System.out.println(base.getLayerArray()[0].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(1).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(2).getWeight());
-      System.out.println();
       base.addLayer(1,2);
-      base.getLayerArray()[1].addNode(0);
-      base.getLayerArray()[1].addNode(1);
-      System.out.println(base.getLayerArray()[1].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[1].getNode(1).getWeight());
-      System.out.println();
       base.addLayer(2,2);
-      base.getLayerArray()[2].addNode(0);
-      base.getLayerArray()[2].addNode(1);
-      System.out.println(base.getLayerArray()[2].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[2].getNode(1).getWeight());
-      System.out.println();
 
-      base.getLayerArray()[0].setLayerOneInputArray(0,-1);
-      base.getLayerArray()[0].setLayerOneInputArray(1,-1);
-      base.getLayerArray()[0].setLayerOneInputArray(2,-1);
+      //Adding nodes
+      for(int i = 0; i< 3;i++){
+        base.getLayerArray()[0].addNode(i);
+      }
+      for(int i = 0; i< 2;i++){
+        base.getLayerArray()[1].addNode(i);
+      }
+      for(int i = 0; i< 2;i++){
+        base.getLayerArray()[2].addNode(i);
+      }
 
-      for(int i = 0; i <  base.getLayerArray()[0].getInputArray().length; i++){
-          System.out.println(base.getLayerArray()[0].getInputArray()[i]);
+      base.getLayerArray()[0].interconectNodes(base.getLayerArray()[0],base.getLayerArray()[1]);
+      base.getLayerArray()[1].interconectNodes(base.getLayerArray()[1],base.getLayerArray()[2]);
+
+      //Setting the inital inputs for the network
+      for(int i = 0; i<3 ; i++ ){
+        base.getLayerArray()[0].getNodeArray()[i].setInput(-1);
       }//End For
 
-      //Setting the weightArray
-      for(int i = 0; i <  base.getLayerArray()[0].getNodeArray().length; i++){
-          base.getLayerArray()[0].getNodeArray()[i].setWeightArray(base.getLayerArray()[0]);
-      }//End For
-      //Printing the weight Array
-      for(int i = 0; i< base.getLayerArray()[0].getNodeArray()[0].getWeightArray().length ;i++){
-        System.out.println(base.getLayerArray()[0].getNodeArray()[0].getWeightArray()[i]);
+      for(int i = 0; i < 3; i++){
+        base.getLayerArray()[0].getNodeArray()[i].setOutput(base.getLayerArray()[0].getNodeArray()[i].getInput());
       }//End For
 
-      base.getLayerArray()[0].feedForward(base.getLayerArray()[0]);
-      System.out.println();
-      System.out.println(base.getLayerArray()[0].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(1).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(2).getWeight());
-      System.out.println();
-      System.out.println(base.getLayerArray()[1].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[1].getNode(1).getWeight());
-      System.out.println();
-      System.out.println(base.getLayerArray()[2].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[2].getNode(1).getWeight());
+      //Feeding Forward layer 1 to layer 2
+      base.getLayerArray()[0].feedForward(base.getLayerArray()[0], base.getLayerArray()[1]);
+
+      for(int i = 0; i < 2;i++){
+        base.getLayerArray()[1].getNodeArray()[i].setOutput(base.getLayerArray()[1].getNodeArray()[i].getInput());
+      }//End For
+
+      //Feeding Forward Layer 2 to Layer 3
+      base.getLayerArray()[1].feedForward(base.getLayerArray()[1], base.getLayerArray()[2]);
+
+      for(int i = 0; i < 2;i++){
+        base.getLayerArray()[2].getNodeArray()[i].setOutput(base.getLayerArray()[2].getNodeArray()[i].getInput());
+      }//End For
+
+      //Printing out the outputs
+      for(int i = 0; i< 3;i ++){
+        System.out.println("Output for layer 1 node "+i+" "+base.getLayerArray()[0].getNodeArray()[i].getOutput());
+      }//End For
+      // printing out the weights
+      for(int i = 0 ; i<3; i++){
+        for(int j =0; j< 2; j++){
+          System.out.println("Weights for layer1 node "+i+" connection "+j+ base.getLayerArray()[0].getNodeArray()[i].getConnections()[j].getWeight());
+        }//End For
+      }
+      for(int i = 0; i< 2;i ++){
+        System.out.println("Output for layer 2 node "+i+" "+base.getLayerArray()[1].getNodeArray()[i].getOutput());
+      }//End For
+      // printing out the weights
+      for(int i = 0 ; i<2; i++){
+        for(int j =0; j< 2; j++){
+          System.out.println("Weights for layer2 node "+i+" connection "+j+ base.getLayerArray()[1].getNodeArray()[i].getConnections()[j].getWeight());
+        }//End For
+      }
+
+      for(int i = 0; i< 2;i ++){
+        System.out.println("Output for layer 3 node "+i+" "+base.getLayerArray()[2].getNodeArray()[i].getOutput());
+      }//End For
+
+
 
   }//End Main
 }//End Class
