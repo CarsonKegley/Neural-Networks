@@ -31,10 +31,21 @@ public class Runner{
           System.out.println(base.getLayerArray()[0].getInputArray()[i]);
       }//End For
 
-      //Setting the weightArray
+      //Setting the weightArray for layer one
       for(int i = 0; i <  base.getLayerArray()[0].getNodeArray().length; i++){
           base.getLayerArray()[0].getNodeArray()[i].setWeightArray(base.getLayerArray()[0]);
       }//End For
+
+      //Setting the weightArray for layer two
+      for(int i = 0; i <  base.getLayerArray()[1].getNodeArray().length; i++){
+          base.getLayerArray()[1].getNodeArray()[i].setWeightArray(base.getLayerArray()[1]);
+      }//End For
+
+      //Setting the weightArray for layer two
+      for(int i = 0; i <  base.getLayerArray()[2].getNodeArray().length; i++){
+          base.getLayerArray()[2].getNodeArray()[i].setWeightArray(base.getLayerArray()[2]);
+      }//End For
+
       //Printing the weight Array
       for(int i = 0; i< base.getLayerArray()[0].getNodeArray()[0].getWeightArray().length ;i++){
         System.out.println(base.getLayerArray()[0].getNodeArray()[0].getWeightArray()[i]);
@@ -42,15 +53,17 @@ public class Runner{
 
       base.getLayerArray()[0].feedForward(base.getLayerArray()[0]);
       System.out.println();
-      System.out.println(base.getLayerArray()[0].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(1).getWeight());
-      System.out.println(base.getLayerArray()[0].getNode(2).getWeight());
+      System.out.println(base.getLayerArray()[0].getNode(0).getOutput());
+      System.out.println(base.getLayerArray()[0].getNode(1).getOutput());
+      System.out.println(base.getLayerArray()[0].getNode(2).getOutput());
       System.out.println();
-      System.out.println(base.getLayerArray()[1].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[1].getNode(1).getWeight());
+      base.getLayerArray()[0].feedForward(base.getLayerArray()[1]);
+      System.out.println(base.getLayerArray()[1].getNode(0).getOutput());
+      System.out.println(base.getLayerArray()[1].getNode(1).getOutput());
       System.out.println();
-      System.out.println(base.getLayerArray()[2].getNode(0).getWeight());
-      System.out.println(base.getLayerArray()[2].getNode(1).getWeight());
+      base.getLayerArray()[0].feedForward(base.getLayerArray()[2]);
+      System.out.println(base.getLayerArray()[2].getNode(0).getOutput());
+      System.out.println(base.getLayerArray()[2].getNode(1).getOutput());
 
   }//End Main
 }//End Class
